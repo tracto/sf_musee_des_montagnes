@@ -177,7 +177,7 @@ file that was distributed with this source code.
                                                     {% endfor %}
                                                 {% endif %}
                                             {% else %}
-                                                {{ _breadcrumb|raw }}
+                                                {{ _breadcrumb|rawdescr }}
                                             {% endif %}
                                         </ol>
                                     {% endif %}
@@ -277,7 +277,7 @@ file that was distributed with this source code.
                                             {% block tab_menu_navbar_header %}
                                                 {% if _navbar_title is not empty %}
                                                     <div class="navbar-header">
-                                                        <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
+                                                        <a class="navbar-brand" href="#">{{ _navbar_title|rawdescr }}</a>
                                                     </div>
                                                 {% endif %}
                                             {% endblock %}
@@ -285,7 +285,7 @@ file that was distributed with this source code.
                                             <div class="navbar-collapse">
                                                 <div class="navbar-left">
                                                     {% if _tab_menu is not empty %}
-                                                        {{ _tab_menu|raw }}
+                                                        {{ _tab_menu|rawdescr }}
                                                     {% endif %}
                                                 </div>
 
@@ -304,18 +304,18 @@ file that was distributed with this source code.
                                                             <li class="dropdown sonata-actions">
                                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>
                                                                 <ul class="dropdown-menu" role="menu">
-                                                                    {{ _actions|raw }}
+                                                                    {{ _actions|rawdescr }}
                                                                 </ul>
                                                             </li>
                                                         {% else %}
-                                                            {{ _actions|raw }}
+                                                            {{ _actions|rawdescr }}
                                                         {% endif %}
                                                         </ul>
                                                     {% endif %}
                                                 {% endblock sonata_admin_content_actions_wrappers %}
 
                                                 {% if _list_filters_actions is not empty %}
-                                                    {{ _list_filters_actions|raw }}
+                                                    {{ _list_filters_actions|rawdescr }}
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -333,30 +333,30 @@ file that was distributed with this source code.
                             {% endblock notice %}
 
                             {% if _preview is not empty %}
-                                <div class="sonata-ba-preview">{{ _preview|raw }}</div>
+                                <div class="sonata-ba-preview">{{ _preview|rawdescr }}</div>
                             {% endif %}
 
                             {% if _content is not empty %}
-                                <div class="sonata-ba-content">{{ _content|raw }}</div>
+                                <div class="sonata-ba-content">{{ _content|rawdescr }}</div>
                             {% endif %}
 
                             {% if _show is not empty %}
-                                <div class="sonata-ba-show">{{ _show|raw }}</div>
+                                <div class="sonata-ba-show">{{ _show|rawdescr }}</div>
                             {% endif %}
 
                             {% if _form is not empty %}
-                                <div class="sonata-ba-form">{{ _form|raw }}</div>
+                                <div class="sonata-ba-form">{{ _form|rawdescr }}</div>
                             {% endif %}
 
                             {% if _list_table is not empty or _list_filters is not empty %}
                                 {% if _list_filters|trim %}
                                     <div class="row">
-                                        {{ _list_filters|raw }}
+                                        {{ _list_filters|rawdescr }}
                                     </div>
                                 {% endif %}
 
                                 <div class="row">
-                                    {{ _list_table|raw }}
+                                    {{ _list_table|rawdescr }}
                                 </div>
 
                             {% endif %}
