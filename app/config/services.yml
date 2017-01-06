@@ -9,6 +9,12 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
+    app.twig_extension:
+        class:        TdS\MuseeBundle\Twig\RawDescriptionExtension
+        public:       false
+        tags:
+            - { name: twig.extension }
+
 
     # admin.montagne:
     #     class: TdS\MuseeBundle\Admin\MontagneAdmin
@@ -18,18 +24,7 @@ services:
 
 
 
-    # admin.auteur:
-    #     class: TdS\MuseeBundle\Admin\AuteurAdmin
-    #     arguments: [~, TdS\MuseeBundle\Entity\Auteur, ~]
-    #     tags:
-    #         - { name: sonata.admin, manager_type: orm, label: Auteur }
-
-
-    # admin.image:
-    #     class: TdS\MuseeBundle\Admin\ImageAdmin
-    #     arguments: [~, TdS\MuseeBundle\Entity\Image, ~]
-    #     tags:
-    #         - { name: sonata.admin, manager_type: orm, label: Image }
+    
     
 
     app.admin.presentation:

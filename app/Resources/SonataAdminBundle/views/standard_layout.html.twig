@@ -88,7 +88,7 @@ file that was distributed with this source code.
             {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
 
             {% if _title is not empty %}
-                {{ _title }}
+                {{ _title|rawdescr }}
             {% else %}
                 {% if action is defined %}
                     -
@@ -162,7 +162,7 @@ file that was distributed with this source code.
                                                                 {% if menu.uri is not empty %}
                                                                     <a href="{{ menu.uri }}">
                                                                         {% if menu.extra('safe_label', true) %}
-                                                                            {{- label|raw -}}
+                                                                            {{- label|rawdescr -}}
                                                                         {% else %}
                                                                             {{- label -}}
                                                                         {% endif %}
