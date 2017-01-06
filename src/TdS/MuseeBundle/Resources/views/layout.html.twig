@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	  <title>{% block title %}Le Musée des Montagnes{% endblock %}</title>
+	  <meta name="description" content="" />
+	  
+	  <link href='https://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+	  
+
+
+   	  <link href="{{ asset('bundles/node_modules/tachyons/css/tachyons.css') }}" rel='stylesheet' type='text/css'>
+
+   	  <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" />	  
+	  <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" />
+
+	  <script type="text/javascript" src="{{ asset('bundles/tdsmusee/js/jquery-3.1.1.min.js') }}"></script>
+	  <script type="text/javascript" src="{{ asset('bundles/tdsmusee/js/d3/d3.js') }}"></script>
+	  {# <script src="{{ asset('js/jquery-2.1.4.min.js') }}" type="text/javascript"></script> 
+	  <script src="{{ asset('js/jquery-ui.min.js') }}" type="text/javascript"></script> #}
+	</head>
+
+
+	{% import "TdSMuseeBundle:Macros:header.html.twig" as headerModule %}
+	{% import "TdSMuseeBundle:Macros:footer.html.twig" as footerModule %}
+
+
+	<body class="helvetica bg-mdm-beigeclair">
+
+		{{ headerModule.header() }}
+
+		<div id="device"></div>
+		<div class="main-wrapper">
+			{# <h1>Le Musée des Montagnes</h1>	 #}				      	
+			{# {{ headernavModule.header() }} #}
+
+			<div class="wrapper flex-container">		    	
+				<div class="container flex-item">
+					{% block body %} {% endblock %}
+				</div>
+			</div>			
+		</div>
+		{{ footerModule.footer() }} 
+
+		
+	</body>
+
+</html>

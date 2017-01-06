@@ -1,0 +1,31 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+
+
+{% block body %}
+	 
+
+	<section class="section center section-inventaire w-100 pa0 mw8 pb5">
+		<h2 class="baskerville ttu fw1 tc f3 pt5">Inventaire du musée</h2>
+		<ul class="montagne_liste list pa0 cf">
+			{% for montagne in montagnesListe %}
+				<li class="montagne_item fl w-100 w-33-m  w-33-ns pa2-ns ">
+					<a class="db w-100 link ba b--black-20 pa2" href="{{ path('tds_musee_montagne_view', {'id': montagne.id}) }} ">
+						<div class="montagne_image aspect-ratio aspect-ratio--1x1">
+							{% if montagne.image is not null %}
+								{% set foo %}
+				     				{% path montagne.image, 'big' %}
+								{% endset %}
+								<img src="" alt="" style="background-image:url({{ foo }});" class="db bg-center cover aspect-ratio--object" />				
+							{% endif %}
+						</div>
+						<h3 class="fw2 f5 mb0 pb0 tc lh-title">{{ montagne.titre }}</h3>
+						<i class="db f7 fw4 mt2 tc black-60 pb2">{{ montagne.auteur.nom }}</i>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		
+	</section>
+
+{% endblock %}

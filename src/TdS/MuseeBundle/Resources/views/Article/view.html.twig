@@ -1,0 +1,31 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<div class="article_wrapper">
+		<div class="article_header">
+			<h2>{{ article.titre }}</h2>
+			<span>Ajoutée le : {{ article.date|date('d/m/Y à H:s') }}</span>
+		</div>
+
+		<div class="article_image">
+			{% if article.image is not null %}
+				{# <img class="" src="montagne.image.id " alt="{{ montagne.image.id }}"> #}
+				{% set foo %}
+     				{% path article.image, 'big' %}
+				{% endset %}
+				<img src="{{ foo }}" alt=""/>				
+			{% endif %}
+		</div>
+
+
+		<div class="article_body">
+			<h3>Présentation</h3>
+			<p>{{ article.contenu }}</p>
+		</div>
+
+	</div>
+{% endblock %}

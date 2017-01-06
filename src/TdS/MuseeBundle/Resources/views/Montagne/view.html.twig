@@ -1,0 +1,61 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<div class="montagne_wrapper flex flex-auto flex-wrap mw8 pa3 ma3 ba b--silver lh-title center">
+		{# <div class="montagne_content w-100 w-50-l"> #}
+			<div class="montagne_header w-100 w-30-l order-1">
+				<h2 class="baskerville ttu fw1">{{ montagne.titre }}</h2>
+				<i class="db pb3">{{ montagne.auteur.nom }}</i>
+				<span class="f6 db">Année de réalisation : {{ montagne.dateRealisation|date('Y') }}</span>
+				<span class="f6 db">Ajoutée le : {{ montagne.dateInscription|date('d/m/Y à H:s') }}</span>
+
+				<div class="montagne_infos pt4">
+					<h3 class="code ttu fw1 f5 pa0 pb1">Infos</h3>
+					<ul class="list pa0 ma0 f6">
+						{% set grandeurtab = { 'TP': 'très petite', 'P': 'petite', 'M': 'moyenne', 'G': 'grande', 'TG': 'très grande' } %}
+						<li>Taille/Grandeur : {{ grandeurtab[montagne.grandeur] }} </li>	
+						<li>Dimensions : {{ montagne.dimensions }} </li>
+						<li>Technique : {{ montagne.technique.titre }} </li>
+						
+						<li>Age : {{ montagne.auteur.age }} ans</li>
+						<li>Sexe : {{ montagne.auteur.sexe }}</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="montagne_content mt3 ma2 w-100 w-100-l order-3 flex flex-wrap flex-auto">	
+				<div class="montagne_desc mb5 w-80 pr4">
+					<h3 class="code ttu fw1 f5 pa0 pb1">Présentation</h3>
+					<p class="texte f6">{{ montagne.description }}</p>
+				</div>
+
+				<div class="montagne_contexte w-20 ba b--light-silver pa2 order-1 order-2-ns">
+					<h3 class="code ttu fw1 f5 pa0 pb1">Note</h3>
+					<p class="texte f6">{{ montagne.note }}</p>
+				</div>
+			</div>
+		{# </div> #}
+
+
+		<div class="montagne_image w-100 w-70-l order-2">
+			{% if montagne.image is not null %}
+				{# <img class="" src="montagne.image.id " alt="{{ montagne.image.id }}"> #}
+				
+				{% set foo %}
+     				{% path montagne.image, 'big' %}
+				{% endset %}
+				<div class="w-100">
+					<img  class="w-100" src="{{ foo }}" alt=""/>
+				</div>
+
+
+				{# {% media montagne.image, 'small' %} #}
+				
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

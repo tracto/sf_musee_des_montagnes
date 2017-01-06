@@ -1,0 +1,131 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<section class="section w-100 w-70-m w-50-l mw8 center section-reglement">
+		<div class="inscription_wrapper">
+			<div class="reglement_header">
+				<div class="f6 tc">
+					<i>Bravo, vous venez de passer le test d'aptitude haut la main.<br/>
+					vous pouvez à présent remplir ce formulaire afin de soumettre votre Montagne</i>
+				</div>
+
+				<h2 class="baskerville ttu fw1 f3 tc lh-title">Inscrire sa montagne</h2>
+			</div>
+
+			<div class="w-100 pa2 f7">
+				{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+			    {# Les erreurs générales du formulaire. #}
+			    {{ form_errors(form) }}
+
+			    <div class="mt3">
+				      {# Génération du label. #}
+				      {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'db fw6 lh-copy f6'}}) }}
+
+				      {# Affichage des erreurs pour ce champ précis. #}
+				      {{ form_errors(form.nom) }}
+
+				      <div class="">
+				        {# Génération de l'input. #}
+				        {{ form_widget(form.nom, {'attr': {'class': 'pa2 input-reset ba bg-transparent hover-bg-near-white hover-dark-gray outline-0 w-100'}}) }}
+				      </div>
+			   	</div>
+
+
+			   	<div class="mt3">
+				      {# Génération du label. #}
+				      {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'db fw6 lh-copy f6'}}) }}
+
+				      {# Affichage des erreurs pour ce champ précis. #}
+				      {{ form_errors(form.prenom) }}
+
+				      <div class="">
+				        {# Génération de l'input. #}
+				        {{ form_widget(form.prenom, {'attr': {'class': 'pa2 input-reset ba bg-transparent hover-bg-near-white hover-dark-gray outline-0 w-100'}}) }}
+				      </div>
+			   	</div>
+
+
+			   	{# Génération du label + error + widget pour un champ #}
+				<div class="mt3">
+				      {# Génération du label. #}
+				      {{ form_label(form.dateNaissance, "Date de Naissance", {'label_attr': {'class': 'db fw6 lh-copy f6'}}) }}
+
+				      {# Affichage des erreurs pour ce champ précis. #}
+				      {{ form_errors(form.dateNaissance) }}
+
+				      <div class="">
+				        {# Génération de l'input. #}
+				        {{ form_widget(form.dateNaissance, {'attr': {'class': 'pa2 input-reset outline-0 w-100'}}) }}
+				      </div>
+			   	</div>
+
+
+			   	<div class="mt3">
+				      {# Génération du label. #}
+				      {{ form_label(form.email, "Email", {'label_attr': {'class': 'db fw6 lh-copy f6'}}) }}
+
+				      {# Affichage des erreurs pour ce champ précis. #}
+				      {{ form_errors(form.email) }}
+
+				      <div class="">
+				        {# Génération de l'input. #}
+				        {{ form_widget(form.email, {'attr': {'class': 'pa2 input-reset ba bg-transparent hover-bg-near-white hover-dark-gray outline-0 w-100'}}) }}
+				      </div>
+			   	</div>
+
+
+				<div class="mt3">
+				      {# Génération du label. #}
+				      {{ form_label(form.titreMontagne, "Titre de la Montagne", {'label_attr': {'class': 'db fw6 lh-copy f6'}}) }}
+
+				      {# Affichage des erreurs pour ce champ précis. #}
+				      {{ form_errors(form.titreMontagne) }}
+
+				      <div class="">
+				        {# Génération de l'input. #}
+				        {{ form_widget(form.titreMontagne, {'attr': {'class': 'pa2 input-reset ba bg-transparent hover-bg-near-white hover-dark-gray outline-0 w-100'}}) }}
+				      </div>
+			   	</div>
+
+
+			   	<div class="mt3">
+				      {# Génération du label. #}
+				      {{ form_label(form.description, "Description / commentaires", {'label_attr': {'class': 'db fw6 lh-copy f6'}}) }}
+
+				      {# Affichage des erreurs pour ce champ précis. #}
+				      {{ form_errors(form.description) }}
+
+				      <div class="">
+				        {# Génération de l'input. #}
+				        {{ form_widget(form.description, {'attr': {'class': 'pa2 input-reset ba bg-transparent hover-bg-near-white hover-dark-gray outline-0 w-100 h5'}}) }}
+				      </div>
+			   	</div>
+
+
+
+			    
+
+				
+
+
+				{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+				{{ form_widget(form.valider, {'attr': {'class': 'f6 link white ba dim black bg-dark-gray db pv2 ph3'}}) }}
+
+				{# Génération automatique des champs pas encore écrits.
+				     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+				     et tous les champs cachés (type « hidden »). #}
+				{{ form_rest(form) }}
+				  
+				  {# Fermeture de la balise <form> du formulaire HTML #}
+				{{ form_end(form) }}
+			</div>
+
+			
+		</div>
+	</section>
+{% endblock %}

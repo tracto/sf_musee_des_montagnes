@@ -1,0 +1,59 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<section class="section center  section-questionnaire w-100 w-70-ns pa2">
+		<div class="questionnaire_wrapper center mw8">
+			<div class="questionnaire_header">
+				<h2 class="baskerville ttu fw1 f3 tc lh-title">Questionnaire</h2>
+			</div>
+
+			<div class="questionnaire_body">
+				<div class="w-100">
+					<h3 class="ttu fw1 f4 tc lh-title">Question n°{{ question.id }}</h3>
+					<div id="flashmessage" class="bg-green f6 w-100 tc pa2 white-80 dn"></div>
+					<p class="f6 tc"><i>{{ question.enonce }}</i></p>
+				</div>
+
+				<div class="w-100">
+					
+						<ul class="list f6">
+							{% for reponse in question.reponses %}
+								<li class="center">
+									<input type="radio" name="reponseitem" data-id="{{ reponse.id }}"/>
+									<span>{{ reponse.contenu }}</span>
+								</li>							
+							{% endfor %}
+						</ul>
+
+						{% set questionsuivid = question.id + 1 %}
+
+						<div id="btn-validation">
+							{% if question.id == countquestions %}							
+								<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_formulaire_inscription') }}" value="valider"/>Valider</a>
+							{% else %}
+								<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_questionnaire_view', {'id': questionsuivid}) }}" value="valider">Valider</a>
+							{% endif %}
+						</div>  											
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		$("#btn-validation>a").on('click', function(){
+			if($('input:radio:checked').length <= 0){
+				$("#flashmessage").removeClass("dn").html("<div>Attention : vous n'avez pas répondu à la question</div>");
+				return false;
+			}else if($('input:radio:checked').data('id') != {{ bonneReponse.id }} ){
+				$("#flashmessage").removeClass("dn").html("<div>Mauvaise réponse !</div>");
+				return false;
+			}
+			
+		});
+ 		
+	</script>
+{% endblock %}

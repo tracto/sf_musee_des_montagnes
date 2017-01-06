@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>{% block title %}Le Musée des Montagnes{% endblock %}</title>
+      <meta name="description" content="" />
+      
+      <link href='https://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+      
+
+
+      <link href="{{ asset('bundles/node_modules/tachyons/css/tachyons.css') }}" rel='stylesheet' type='text/css'>
+
+      <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" />      
+      <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" />
+
+      <script type="text/javascript" src="{{ asset('bundles/tdsmusee/js/jquery-3.1.1.min.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('bundles/tdsmusee/js/d3/d3.js') }}"></script>
+
+    </head>
+
+
+
+    {% import "TdSMuseeBundle:Macros:header.html.twig" as headerModule %}
+    {% import "TdSMuseeBundle:Macros:footer.html.twig" as footerModule %}
+
+
+    <body class="helvetica bg-mdm-beigeclair">
+
+        {{ headerModule.header() }}
+
+        <div id="device"></div>
+        <div class="main-wrapper">
+            
+
+            <div class="wrapper flex-container">                
+                <div class="container flex-item">
+                    <section class="section w-100 w-50-ns center section-reglement pa2">
+                        <div class="reglement_wrapper mw8">
+                            <div class="reglement_header">
+                                <h2 class="baskerville ttu fw1 f3 tc lh-title">Erreur</h2>
+                            </div>
+                            <div class="reglement_body">
+                                <div class="pb6 f7 lh-copy tc">
+                                Nous sommes au regret de vous annoncer qu'un erreur s'est produite, sûrement à cause de vous. Nous avons informé le tribunal administratif. <br/>
+                                Veuillez remplir le formulaire E628 ainsi que de fournir un extrait de casier judiciaire.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
+            </div>
+        </div>          
+        
+        {{ footerModule.footer() }} 
+
+        
+    </body>
+</html>

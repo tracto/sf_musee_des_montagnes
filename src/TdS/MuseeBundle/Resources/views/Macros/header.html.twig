@@ -1,0 +1,27 @@
+{% macro header() %}
+
+	<header id="header" class="main-header bg-mdm-beigeclair black-80 ttu tc pv4 code">
+
+			{# <input id="mobile-nav" type="checkbox" class="nav-toggler" />
+			<label for="mobile-nav" class="nav-toggler__label button">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  viewBox="0 0 32 32">
+				  <path d="M0 0v3h32v-3h-32zm0 10v3h32v-3h-32zm0 10v3h32v-3h-32z"/>
+				</svg>
+			</label> #}
+			<a href="{{ path('tds_musee_home') }}" class="db w-100">
+				<div class="logo w-50 w-30-m w-20-l center">
+					<img src="{{ asset('bundles/tdsmusee/images/logo-badge.svg') }}" class="br-100 pa1 ba b--black-10 h-100 w-100" alt="avatar">
+				</div>
+				<h1 class="mt0 mb0 baskerville fw1 f2 lh-title">Le musée des Montagnes</h1>
+			</a>
+
+			<nav class="navbar-header bt bb tc  center mt4">
+				<a  class="f7 link bg-animate hover-bg-near-black hover-near-white  black-80 dib pa3 ph4-l" href="{{ path('tds_musee_presentation_view', {'id': 1}) }}">L'association</a>
+				<a  class="f7 link bg-animate black-80 hover-bg-near-black hover-near-white   dib pa3 ph4-l" href="{{ path('tds_musee_montagne_list') }}">Inventaire du Musée</a>
+				<a  class="f7 link bg-animate black-80 hover-bg-near-black hover-near-white dib pa3 ph4-l" href="{{ path('tds_musee_reglement', {'id': 1}) }}">Soumettre sa Montagne</a>
+		        <a  class="f7 link bg-animate black-80 hover-bg-near-black hover-near-white   dib pa3 ph4-l" href="{{ path('tds_musee_article_list') }}">Actualités</a>
+		        <a  class="f7 link bg-animate black-80 hover-bg-near-black hover-near-white dib pa3 ph4-l" href="{{ path('tds_musee_edition_list') }}">Les éditions du Musée</a>
+			</nav>
+
+	 </header>
+ {% endmacro %}

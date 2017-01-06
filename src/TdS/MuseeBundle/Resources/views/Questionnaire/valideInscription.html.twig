@@ -1,0 +1,30 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<section class="section w-100 w-70-m w-50-l mw8 center section-reglement">
+		<div class="inscription_wrapper">
+			<div class="reglement_header">
+				<div class="f6 tc">
+					<i>Votre Montagne va être étudiée par un collège d'experts qui statuerons sur son entrée dans le Musée.<br/>
+					Vous recevrez prochainement un mail vous tenant au courant de leur décision</i>
+				</div>
+
+				<h2 class="baskerville ttu fw1 f3 tc lh-title">votre Montagne</h2>
+			</div>
+
+			<div class="w-100 ba pa2">
+				<div>{{ inscription.nom }}</div>
+				<div>{{ inscription.prenom }}</div>
+				<div>{{ inscription.dateNaissance|date('d/m/Y') }}</div>
+				<div>{{ inscription.titreMontagne }}</div>
+				<div>{{ inscription.description }}</div>
+			</div>
+
+			
+		</div>
+	</section>
+{% endblock %}

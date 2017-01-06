@@ -1,0 +1,27 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<section class="section w-100 w-50-ns center section-reglement pa2">
+		<div class="reglement_wrapper mw8">
+			<div class="reglement_header">
+				<h2 class="baskerville ttu fw1 f3 tc lh-title">Règlement intérieur</h2>
+			</div>
+
+			<div class="reglement_body">
+				<div class="pb6 f7 lh-copy">
+					{{ reglement.contenu | raw }}
+				</div>
+
+
+
+				<div class="w-100">
+					<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_questionnaire_view', {'id': "1"}) }} ">accéder au questionnaire</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

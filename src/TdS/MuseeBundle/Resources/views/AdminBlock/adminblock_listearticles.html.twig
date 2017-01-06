@@ -1,0 +1,34 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+	<div class="box admin-db-block admin-db-listeArticles"> 
+		<h3 class="pt3">{{ settings.title }}</h3>
+		<div class=""> 
+			{% for article in listearticles %}
+				<div class=" w-100 bb b--black-05 pb2 mt2">
+					<a class="dt w-100 link dim ba pa2 black-20 br4" href="{{ admin.generateObjectUrl('edit', article) }}">
+						<div class="dtc w4 w5-ns v-mid">
+							<div class="aspect-ratio aspect-ratio--1x1">
+								{% set foo %}
+							    	{% path article.image, 'big' %}
+								{% endset %}
+								<img style="background-image:url({{ foo }});" class="db bg-center cover aspect-ratio--object"/>
+	  						</div>
+  						</div>
+
+  						<div class="dtc v-mid pl3">
+					        <h1 class="f4 f3-ns fw6 lh-title black-80 pv0">{{ article.titre }}</h1>
+					        <h2 class="f4 fw4 mt0 mb0 black-60">{{ article.date|date('d/m/Y à H:s') }}</h2>
+					    </div>							
+					 </a> 
+				</div>
+			{% endfor %}
+		</div>
+		{% if admin.hasroute('create') and admin.isGranted('CREATE') %}
+		    <a class="btn btn-link btn-flat" href="{{ admin.generateUrl('create') }}">
+		        <i class="fa fa-plus-circle"></i>
+		        Ajouter un article
+		    </a>
+		{% endif %}
+	</div>
+{% endblock %}

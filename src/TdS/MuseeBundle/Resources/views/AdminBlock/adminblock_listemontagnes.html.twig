@@ -1,0 +1,33 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+	<div class="box admin-db-block admin-db-listeMontagnes"> 
+		<h3 class="tc pt3">{{ settings.title }}</h3>
+		<div class="cf w-100 pa2-ns"> 
+			{% for montagne in listemontagnes %}
+				<div class="fl w-50 w-33-m w-25-l pa2">
+					<a class="db link dim tc ba pa2 light-silver br2" href="{{ admin.generateObjectUrl('edit', montagne) }}">
+						<div class="aspect-ratio aspect-ratio--1x1">
+							{% set foo %}
+						    	{% path montagne.image, 'big' %}
+							{% endset %}
+							<img style="background-image:url({{ foo }});" 
+      class="db bg-center cover aspect-ratio--object"/>
+						</div>
+
+						<div class="mt2 f4 h4 lh-copy pv3">
+							<h4 class="f3 pv0">{{ montagne.titre }}</h4>
+							<span class="f5 gray truncate w-100">{{ montagne.auteur.nom }}</span>
+						</div >
+					 </a> 
+				</div>
+			{% endfor %}
+		</div>
+		{% if admin.hasroute('create') and admin.isGranted('CREATE') %}
+		    <a class="btn btn-link btn-flat" href="{{ admin.generateUrl('create') }}">
+		        <i class="fa fa-plus-circle"></i>
+		        Ajouter une montagne
+		    </a>
+		{% endif %}
+	</div>
+{% endblock %}

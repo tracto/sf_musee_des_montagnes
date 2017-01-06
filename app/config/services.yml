@@ -1,0 +1,188 @@
+
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+
+    # admin.montagne:
+    #     class: TdS\MuseeBundle\Admin\MontagneAdmin
+    #     arguments: [~, TdS\MuseeBundle\Entity\Montagne, ~]
+    #     tags:
+    #         - { name: sonata.admin, manager_type: orm, label: Montagne }
+
+
+
+    # admin.auteur:
+    #     class: TdS\MuseeBundle\Admin\AuteurAdmin
+    #     arguments: [~, TdS\MuseeBundle\Entity\Auteur, ~]
+    #     tags:
+    #         - { name: sonata.admin, manager_type: orm, label: Auteur }
+
+
+    # admin.image:
+    #     class: TdS\MuseeBundle\Admin\ImageAdmin
+    #     arguments: [~, TdS\MuseeBundle\Entity\Image, ~]
+    #     tags:
+    #         - { name: sonata.admin, manager_type: orm, label: Image }
+    
+
+    app.admin.presentation:
+        class: TdS\MuseeBundle\Admin\PresentationAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Présentation"
+              label: "Présentation"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Presentation
+            - ~
+
+
+    app.admin.reglement:
+        class: TdS\MuseeBundle\Admin\ReglementAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Règlement intérieur"
+              label: "Présentation"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Reglement
+            - ~
+
+
+    app.admin.inscription:
+        class: TdS\MuseeBundle\Admin\InscriptionAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Inscriptions"
+              label: "Inscriptions"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Inscription
+            - ~
+
+
+
+    app.admin.montagnes:
+        class: TdS\MuseeBundle\Admin\MontagneAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Inventaire des Montagnes"
+              label: "Inventaire des Montagnes"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Montagne
+            - ~
+
+
+    app.admin.auteurs:
+        class: TdS\MuseeBundle\Admin\AuteurAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Auteurs"
+              label: "Auteurs"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Auteur
+            - ~
+
+
+    app.admin.techniques:
+        class: TdS\MuseeBundle\Admin\TechniqueAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Technique"
+              label: "Technique"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Technique
+            - ~
+
+
+    app.admin.articles:
+        class: TdS\MuseeBundle\Admin\ArticleAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Actualités"
+              label: "Actualités"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Article
+            - ~
+
+
+    app.admin.editions:
+        class: TdS\MuseeBundle\Admin\EditionAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Les Editions du Musée"
+              label: "Les Editions du Musée"
+              on_top: true
+        arguments:
+            - ~
+            - TdS\MuseeBundle\Entity\Edition
+            - ~
+
+
+
+
+
+
+
+    sonata.admin.block.montagnes:
+        class: TdS\MuseeBundle\AdminBlock\ListeMontagnesBlockService
+        tags:
+            - name: sonata.block 
+        arguments:
+            - "sonata.block.service.listemontagnes"
+            - @templating
+            - @sonata.admin.pool
+            - @doctrine.orm.entity_manager
+            - @security.context
+
+
+
+    sonata.admin.block.articles:
+        class: TdS\MuseeBundle\AdminBlock\ListeArticlesBlockService
+        tags:
+            - name: sonata.block 
+        arguments:
+            - "sonata.block.service.listeArticles"
+            - @templating
+            - @sonata.admin.pool
+            - @doctrine.orm.entity_manager
+            - @security.context
+
+
+
+    sonata.admin.block.editions:
+        class: TdS\MuseeBundle\AdminBlock\ListeEditionsBlockService
+        tags:
+            - name: sonata.block 
+        arguments:
+            - "sonata.block.service.listeEditions"
+            - @templating
+            - @sonata.admin.pool
+            - @doctrine.orm.entity_manager
+            - @security.context

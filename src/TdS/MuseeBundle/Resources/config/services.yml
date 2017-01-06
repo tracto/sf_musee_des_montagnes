@@ -1,0 +1,4 @@
+services:
+#    td_s_musee.example:
+#        class: TdS\MuseeBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

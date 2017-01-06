@@ -1,0 +1,46 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<section class="section dt center section-presentation pa2">
+		<div class="presentation_wrapper mw8">
+			<div class="presentation_header">
+				<h2 class="baskerville ttu fw1 f3 tc lh-title">L'association les Ressources du Musée des Montagnes</h2>
+			</div>
+
+			<div class="presentation_image aspect-ratio aspect-ratio--16x9">
+				{% if presentation.imageMain is not null %}
+					{% set foo %}
+	     				{% path presentation.imageMain, 'big' %}
+					{% endset %}
+					<img src="" alt="" style="background-image:url({{ foo }});" class="db bg-center cover aspect-ratio--object" />					
+				{% endif %}
+			</div>
+
+
+			<div class="presentation_body w-100 cf pt3">
+				<div class="presentation_diaporama fl cf w-100 w-50-ns">
+					{% for imageDiapo in presentation.galerie.galleryHasMedias %}
+						{% set foo %}					
+							{% path imageDiapo.media, 'big' %}
+						{% endset %}	
+						<img class="fl w-100 w-50-l" src="{{ foo }}" alt=""/>
+					{% endfor %}
+				</div>
+				<div class="presentation_text pl3 v-top fl w-100 w-50-ns ">			
+					<p class="f7 pa0 lh-copy">
+						{{ presentation.contenu }}
+					</p>
+				</div>				
+			</div>
+
+			<div class="w-100 cf pt4 pb5 tc">
+				<a class="fl w-100 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_edition_list') }}">Les statuts (pdf)</a>
+				<a class="fr w-100 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_edition_list') }}">Hello Asso</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}

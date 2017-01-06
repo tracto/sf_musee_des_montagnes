@@ -1,0 +1,36 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+
+
+{% block body %}
+
+
+	<section class="section center section-actualites mw8 pv5 cf">
+		<h2 class="baskerville ttu fw1 f3 tc">Actualités</h2>
+		<ul class="article_liste list pa0">
+			{% for article in articlesListe %}
+				<li class="article_item w-100 pa2-ns">
+					<a class="db w-100 link ba b--black-20 pa2" href="{{ path('tds_musee_article_view', {'id': article.id}) }} ">
+						<div class="dtc w-40">
+							<div class="article_image w-100 db">
+								{% if article.image is not null %}
+									{% set foo %}
+					     				{% path article.image, 'big' %}
+									{% endset %}
+									<img src="{{ foo }}" alt="" style="background-image:url({{ foo }});" class="db w-100" />				
+								{% endif %}
+							</div>
+						</div>
+						<div class="dtc w-60 v-top pl3">
+							<h2 class="fw2 f5 mb0 pb0 lh-title">{{ article.titre }}</h2>
+							<i class="db f7 fw4 mt2 black-60 pb2">{{ article.date|date('d/m/Y à H:s') }}</i>
+							<p class="f6">{{ article.contenu|truncate(200, true) }} ...</p>
+						</div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		
+	</section>
+
+{% endblock %}

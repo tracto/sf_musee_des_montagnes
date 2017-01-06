@@ -1,0 +1,261 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+
+{% block body %}
+	<section class="section dt center section-presentation">
+		<div class="dtc v-mid tc mw8 ph5 ph6-l ph6-l">
+			<h2 class="baskerville ttu fw1 f2">Présentation</h2>
+		
+			{# <a href="{{ path('tds_musee_article_view', {'id': article.id}) }} ">voir plus</a> #}
+				{# <div class="article_image">
+					{% if article.image is not null %}
+						{% set foo %}
+		     				{% path article.image, 'small' %}
+						{% endset %}
+						<img src="{{ foo }}" alt=""/>				
+					{% endif %}
+				</div> #}
+				<p class="f7 ma0 pa0">{{ presentation.chapo }}</p>
+				<div class="w-100">
+					<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_presentation_view', {'id': presentation.id}) }}">En savoir plus sur l'association</a>
+				</div>
+		</div>
+	</section>
+
+	<section class="section center section-inventaire w-100 pa0 mw8 pb5">
+		<h2 class="baskerville ttu fw1 tc f3 pt5">Montagnes</h2>
+		<ul class="montagne_liste list pa0 cf">
+			{% for montagne in montagnes %}
+				<li class="montagne_item fl w-100 w-33-m  w-33-ns pa2-ns ">
+					<a class="db w-100 link ba b--black-20 pa2" href="{{ path('tds_musee_montagne_view', {'id': montagne.id}) }} ">
+						<div class="montagne_image aspect-ratio aspect-ratio--1x1">
+							{% if montagne.image is not null %}
+								{% set foo %}
+				     				{% path montagne.image, 'big' %}
+								{% endset %}
+								<img src="" alt="" style="background-image:url({{ foo }});" class="db bg-center cover aspect-ratio--object" />				
+							{% endif %}
+						</div>
+						<h3 class="fw2 f5 mb0 pb0 tc lh-title">{{ montagne.titre }}</h3>
+						<i class="db f7 fw4 mt2 tc black-60 pb2">{{ montagne.auteur.nom }}</i>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="w-100">
+			<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_montagne_list') }}">Inventaire du Musée</a>
+		</div>
+	</section>
+
+
+
+	<section class="section center section-statistiques w-100 pa0 mw8 pb5 cf">
+		<h2 class="baskerville ttu fw1 tc f3 pt5">Statistiques</h2>
+
+		<div id="data-sexe" class="data hidden" data-f="{{ countF }}" data-h="{{ countH }}"></div>	
+
+
+
+		<div class="tc fl w-100 w-50-l">
+			<div class="" id="stat-sexe"></div>
+			<div class="w-100"><i>Sexe des Montagnes</i></div>
+		</div>
+
+		<div class="tc fl w-100 w-50-l">
+			<div class="" id="stat-age"></div>
+			<div class="w-100"><i>Age des Montagnes</i></div>
+		</div>
+
+	</section>
+
+
+	<section class="section center section-actualites mw8 pv5">
+		<h2 class="baskerville ttu fw1 f3 tc">Dernières Actualités</h2>
+		<ul class="article_liste list pa0 cf">
+			{% for article in articles %}
+				<li class="article_item fl w-100 w-50-ns pa2-ns">
+					<a class="db w-100 link ba b--black-20 pa2" href="{{ path('tds_musee_article_view', {'id': article.id}) }} ">
+						<div class="article_image aspect-ratio aspect-ratio--16x9">
+							{% if article.image is not null %}
+								{% set foo %}
+				     				{% path article.image, 'big' %}
+								{% endset %}
+								<img src="" alt="" style="background-image:url({{ foo }});" class="db bg-center cover aspect-ratio--object" />				
+							{% endif %}
+						</div>
+						<h2 class="fw2 f5 mb0 pb0 tc lh-title">{{ article.titre }}</h2>
+						<i class="db f7 fw4 mt2 tc black-60 pb2">{{ article.date|date('d/m/Y à H:s') }}</i>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="w-100">
+			<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_article_list') }}">Toutes les actualités</a>
+		</div>
+	</section>
+
+
+
+	<section class="section center section-editions mw8 pv5">
+		<h2 class="baskerville ttu fw1 f3 tc">Dernières Editions du Musée</h2>
+		<ul class="editions_liste list cf">
+			{% for edition in editions %}
+				<li class="edition_item">
+					<a class="link dt w-100 bb b--black-10 pb2 mt2 dim" href="{{ path('tds_musee_edition_view', {'id': edition.id}) }} ">
+						<div class="edition_image dtc w4">
+							{% if edition.image is not null %}
+								{% set foo %}
+				     				{% path edition.image, 'big' %}
+								{% endset %}
+								<img class="db w-100" src="{{ foo }}" alt=""/>				
+							{% endif %}
+						</div>
+						<div class="dtc v-top pl3">
+							<h2 class="fw2 f5 mb0 pa0 lh-title">{{ edition.titre }}</h2>
+							<i>{{ edition.dateParution|date('d/m/Y à H:s') }}</i>
+						</div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="w-100">
+			<a class="db w-50 w-30-ns bg-black-70 white-80 tc pa2 center f7" href="{{ path('tds_musee_edition_list') }}">Toutes les éditions</a>
+		</div>
+	</section>
+
+	{# test js d3 #}
+		<script type="text/javascript">
+			
+
+			// LE DONUT DES SEXES
+			var svgSexe=d3.select("#stat-sexe")
+							.append("svg")
+							.attr("width",500)
+							.attr("height",500)
+							.attr("viewBox","0 0 500 500")
+  							.attr("preserveAspectRatio", "xMidYMid meet")
+							;
+
+			var dataF=$("#data-sexe").data("f");
+			var dataH=$("#data-sexe").data("h");
+
+			var donneesSexe= [{"name":"Hommes","chiffre":dataH, "couleur":"darkgrey"},{"name":"Femmes","chiffre":dataF,"couleur":"grey"}];
+			var r= 200;
+			var p=Math.PI*2;
+
+			var group= svgSexe.append("g")
+			    .attr("transform", "translate(250,250)");
+
+			var arc = d3.arc()
+			    .innerRadius(0)
+			    .outerRadius(r);
+
+			var pie= d3.pie()
+			    .value(function(d){return d.chiffre;});
+
+			var arcs= group.selectAll(".arc")
+			    .data(pie(donneesSexe))
+			    .enter()
+			        .append("g")
+			        .attr("class", "arc");
+
+			arcs.append("path")
+			    .style("fill", function(d,i){return donneesSexe[i].couleur;})
+			    .attr("d", arc);
+			    
+			arcs.append("text")
+			    .attr("transform", function(d){return "translate(" + arc.centroid(d) + ")";})
+			    .attr("text-anchor", "middle")
+			    .text(function(d,i){return donneesSexe[i].name});
+
+
+			// LE GRAPHIQUE DES AGES
+			// set the dimensions and margins of the graph
+			var margin = {top: 20, right: 20, bottom: 100, left: 50},
+			    width = 460 - margin.left - margin.right,
+			    height = 500 - margin.top - margin.bottom;
+
+			
+       		var donneesAge  = {{ auteursJson|raw }};
+       			
+			
+			// set the ranges
+			var x = d3.scaleLinear().range([0, width]);
+			var y = d3.scaleLinear().range([height, 0]);
+
+			// define the line
+			var valueline = d3.line()
+			    .x(function(d) { return x(d.id); })
+			    .y(function(d) { return y(d.age); });
+
+
+			// append the svg object to the body of the page
+			// appends a 'group' element to 'svg'
+			// moves the 'group' element to the top left margin
+			var svgAge = d3.select("#stat-age").append("svg")
+			    .attr("width", width + margin.left + margin.right)
+			    .attr("height", height + margin.top + margin.bottom)
+			    .attr("viewBox","0 0 500 500")
+  				.attr("preserveAspectRatio", "xMidYMid meet")
+			  	.append("g")
+			    .attr("transform",
+			          "translate(" + margin.left + "," + margin.top + ")");
+
+			
+			  // format the data
+			  svgAge.pointsNames = [];
+
+			  donneesAge.forEach(function(d) {
+			      d.id = +d.id;
+			      d.age = +d.age;
+			      svgAge.pointsNames.push(d.nom);
+			  });
+
+
+
+			  // Scale the range of the data
+
+			  x.domain(d3.extent(donneesAge, function(d) { return d.id; }));
+
+			  y.domain([0, d3.max(donneesAge, function(d) { return d.age; })]);
+
+
+			  // Add the valueline path.
+			  svgAge.append("path")
+			      .data([donneesAge])
+			      .attr("class", "line")
+			      .attr("d", valueline);
+
+
+			  svgAge.selectAll("dot")
+        		.data(donneesAge)
+      			.enter().append("circle")
+        		.attr("r", 3.5)
+        		.attr("cx", function(d) { return x(d.id); })
+        		.attr("cy", function(d) { return y(d.age); })
+        		.attr("fill", "dodgerblue");
+
+			  
+
+			  // Add the X Axis
+			  svgAge.append("g")
+			      .attr("transform", "translate(0," + height + ")")
+			      .data([donneesAge])
+			      .call(d3.axisBottom(x)
+			      		  .ticks(donneesAge.length-1)
+			      		  .tickFormat(function(d, i){ return svgAge.pointsNames[i]; })
+			      		  )
+			      .selectAll("text")	
+            		.style("text-anchor", "end")
+            		.attr("dx", "-.8em")
+            		.attr("dy", ".15em")
+            		.attr("transform", function(d) {
+                		return "rotate(-65)" 
+                	});;
+
+			  // Add the Y Axis
+			  svgAge.append("g")
+			      .call(d3.axisLeft(y));
+		</script>
+	
+{% endblock %}

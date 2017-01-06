@@ -1,0 +1,80 @@
+tds_musee_home:
+    path:     /
+    defaults: { _controller: TdSMuseeBundle:Default:index }
+
+
+
+tds_musee_reglement:
+    path:     /reglement/{id}
+    defaults: { _controller: TdSMuseeBundle:Reglement:view }
+    requirements:
+        id: \d+
+
+
+tds_musee_presentation_view:
+    path:     /presentation/view/{id}
+    defaults:  { _controller:  TdSMuseeBundle:Presentation:view }      
+    requirements:
+        id: \d+
+
+
+tds_musee_questionnaire_view:
+    path:     /questionnaire/view/{id}
+    defaults:  { _controller:  TdSMuseeBundle:Questionnaire:view }      
+    requirements:
+        id: \d+
+
+
+tds_musee_formulaire_inscription:
+    path:     /formulaire-inscription
+    defaults:  { _controller:  TdSMuseeBundle:FormulaireInscription:add }      
+
+
+
+tds_musee_validation_inscription:
+    path:     /formulaire-inscription/validation/{id}
+    defaults:  { _controller:  TdSMuseeBundle:FormulaireInscription:valide }      
+    requirements:
+        id: \d+
+
+
+
+
+
+tds_musee_montagne_list:
+    path:     /montagne/list
+    defaults:  { _controller:  TdSMuseeBundle:Montagne:list }      
+
+tds_musee_montagne_view:
+    path:     /montagne/view/{id}
+    defaults:  { _controller:  TdSMuseeBundle:Montagne:view }      
+    requirements:
+        id: \d+
+
+
+
+
+
+
+tds_musee_article_list:
+    path:     /article/list
+    defaults:  { _controller:  TdSMuseeBundle:Article:list } 
+
+tds_musee_article_view:
+    path:     /article/view/{id}
+    defaults:  { _controller:  TdSMuseeBundle:Article:view }      
+    requirements:
+        id: \d+
+
+
+
+
+tds_musee_edition_list:
+    path:     /edition/list
+    defaults:  { _controller:  TdSMuseeBundle:Edition:list }
+
+tds_musee_edition_view:
+    path:     /edition/view/{id}
+    defaults:  { _controller:  TdSMuseeBundle:Edition:view }      
+    requirements:
+        id: \d+

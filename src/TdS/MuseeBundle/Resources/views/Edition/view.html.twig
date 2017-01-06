@@ -1,0 +1,36 @@
+{% extends "TdSMuseeBundle::layout.html.twig" %}
+
+{# {% block title %}
+  Le Musée des Montagnes 
+{% endblock %} #}
+
+{% block body %}
+	<div class="edition_wrapper">
+		<div class="edition_header">
+			<h2>{{ edition.titre }}</h2>
+			<span>Parition le : {{ edition.dateParution|date('d/m/Y à H:s') }}</span>
+			<br/>
+			<span>Catégorie : {{ edition.categorie }}</span>
+			<br/>
+			<span>Prix : {{ edition.prix }}</span>
+
+
+		</div>
+
+		<div class="edition_image">
+			{% if edition.image is not null %}
+				{% set foo %}
+     				{% path edition.image, 'big' %}
+				{% endset %}
+				<img src="{{ foo }}" alt=""/>				
+			{% endif %}
+		</div>
+
+
+		<div class="edition_body">
+			<h3>Description</h3>
+			<p>{{ edition.description }}</p>
+		</div>
+
+	</div>
+{% endblock %}
