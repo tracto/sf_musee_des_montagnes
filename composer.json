@@ -1,5 +1,6 @@
 {
-    "name": "museedesmontagnes",
+    "name": "sfmuseedesmontagnes",
+    "description": "site web du musée des montagnes",
     "license": "proprietary",
     "type": "project",
     "autoload": {
