@@ -10,13 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ArticleAdmin extends AbstractAdmin
 {
 
-    // protected function configureRoutes(RouteCollection $collection){
-    //     parent::configureRoutes($collection);
-    //      $collection        
-    //          ->add('createFromAuteur', $this->getRouterIdParameter().'/create')
-    //     ;
-    //     $this->auteur_id=$this->getRouterIdParameter();
-    // }
+    
 
 
 
