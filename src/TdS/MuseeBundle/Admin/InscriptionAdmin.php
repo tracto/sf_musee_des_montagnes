@@ -38,5 +38,3 @@ class InscriptionAdmin extends AbstractAdmin
     }
 
 }
-
-?>

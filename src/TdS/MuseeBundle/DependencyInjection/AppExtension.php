@@ -16,4 +16,3 @@ class AppExtension extends Extension
         $loader->load('admin.yml');
     }
 }
-?>

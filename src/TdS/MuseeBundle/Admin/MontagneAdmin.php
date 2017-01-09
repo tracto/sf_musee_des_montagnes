@@ -155,5 +155,3 @@ class MontagneAdmin extends AbstractAdmin
         }
     }
 }
-
-?>

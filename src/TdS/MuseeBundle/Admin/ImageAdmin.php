@@ -45,11 +45,5 @@ class ImageAdmin extends AbstractAdmin{
             ->add('filename')
             ->add('updated')          
         ;
-    }
-
-    // public function toString($object){
-    //     return $object instanceof Image
-    //         ? $object->getFilename()
-    //         : 'Image'; // shown in the breadcrumb on the create view
-    // }
+    }    
 }

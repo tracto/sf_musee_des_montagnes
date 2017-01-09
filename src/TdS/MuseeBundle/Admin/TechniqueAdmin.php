@@ -11,5 +11,4 @@ class TechniqueAdmin extends AbstractAdmin{
         $formMapper->add('titre','text');
         
     }
-
 }

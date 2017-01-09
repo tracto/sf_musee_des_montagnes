@@ -110,5 +110,3 @@ class PresentationAdmin extends AbstractAdmin{
         }
     }
 }
-
-?>

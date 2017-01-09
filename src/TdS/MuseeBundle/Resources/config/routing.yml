@@ -78,3 +78,4 @@ tds_musee_edition_view:
     defaults:  { _controller:  TdSMuseeBundle:Edition:view }      
     requirements:
         id: \d+
+        

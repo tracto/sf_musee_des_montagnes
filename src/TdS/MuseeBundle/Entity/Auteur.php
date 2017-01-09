@@ -276,5 +276,4 @@ class Auteur
     {
         return $this->ville;
     }
-
 }

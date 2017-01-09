@@ -181,3 +181,4 @@ services:
             - @sonata.admin.pool
             - @doctrine.orm.entity_manager
             - @security.context
+            

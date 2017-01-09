@@ -62,9 +62,4 @@ class Technique
     {
         return $this->titre;
     }
-
-
-
-    
-
 }
