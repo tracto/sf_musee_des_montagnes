@@ -104,5 +104,3 @@ class ArticleAdmin extends AbstractAdmin
         }
     }
 }
-
-?>
