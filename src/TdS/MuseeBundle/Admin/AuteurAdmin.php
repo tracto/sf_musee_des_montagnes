@@ -11,7 +11,7 @@ class AuteurAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $imageFieldOptions = array();
+        
 
         $formMapper->with('Général', array('class' => 'col-md-8'))                   
                             ->add('nom', 'text')

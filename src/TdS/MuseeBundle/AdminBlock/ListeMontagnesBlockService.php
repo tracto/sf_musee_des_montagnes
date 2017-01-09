@@ -49,12 +49,9 @@ class ListeMontagnesBlockService extends BaseBlockService implements BlockServic
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         $user_current   = $this->securityContext->getToken()->getUser();
-        $user_id         = $user_current->getId();
 
         $admin = $this->pool->getAdminByAdminCode('app.admin.montagnes');
 
-        // merge settings
-        $settings = array_merge($this->getDefaultSettings(), $blockContext->getSettings());
 
         $montagnerepository = $this->em->getRepository('TdSMuseeBundle:Montagne');
         $listemontagnes = $montagnerepository->findBy(

@@ -49,12 +49,9 @@ class ListeEditionsBlockService extends BaseBlockService implements BlockService
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         $user_current   = $this->securityContext->getToken()->getUser();
-        $user_id         = $user_current->getId();
 
         $admin = $this->pool->getAdminByAdminCode('app.admin.articles');
 
-        // merge settings
-        $settings = array_merge($this->getDefaultSettings(), $blockContext->getSettings());
 
         $editionsrepository = $this->em->getRepository('TdSMuseeBundle:Edition');
         $listeeditions = $editionsrepository->findAll();
