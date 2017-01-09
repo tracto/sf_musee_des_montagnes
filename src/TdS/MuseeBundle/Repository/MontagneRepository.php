@@ -3,7 +3,7 @@
 namespace TdS\MuseeBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use DoctrineExtensions\Query\Mysql\Rand;
+
 
 
 /**

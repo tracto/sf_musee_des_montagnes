@@ -3,9 +3,7 @@
 namespace TdS\MuseeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use Application\Sonata\MediaBundle\Entity\Media;
-use TdS\MuseeBundle\Entity\Auteur;
 use TdS\MuseeBundle\Entity\Technique;
 
 /**

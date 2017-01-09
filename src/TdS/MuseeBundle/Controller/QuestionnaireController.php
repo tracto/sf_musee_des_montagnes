@@ -2,11 +2,8 @@
 
 namespace TdS\MuseeBundle\Controller;
 
-use TdS\MuseeBundle\Entity\Question;
-use TdS\MuseeBundle\Entity\Reponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class QuestionnaireController extends Controller
 {

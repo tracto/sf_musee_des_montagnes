@@ -5,9 +5,6 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use TdS\MuseeBundle\Entity\Auteur;
-use TdS\MuseeBundle\Entity\Technique;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class MontagneAdmin extends AbstractAdmin
 {
