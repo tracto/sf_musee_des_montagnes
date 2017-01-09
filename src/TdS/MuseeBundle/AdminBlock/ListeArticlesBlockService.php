@@ -48,9 +48,7 @@ class ListeArticlesBlockService extends BaseBlockService implements BlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        $user_current   = $this->securityContext->getToken()->getUser();
-        
-
+ 
         $admin = $this->pool->getAdminByAdminCode('app.admin.articles');
 
 

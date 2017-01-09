@@ -48,7 +48,6 @@ class ListeMontagnesBlockService extends BaseBlockService implements BlockServic
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        $user_current   = $this->securityContext->getToken()->getUser();
 
         $admin = $this->pool->getAdminByAdminCode('app.admin.montagnes');
 
