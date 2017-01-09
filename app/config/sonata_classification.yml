@@ -7,4 +7,3 @@ doctrine:
             default:
                 mappings:
                     SonataClassificationBundle: ~
-                    
